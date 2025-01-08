@@ -66,7 +66,7 @@ print(f'P((x^2 + 1)/(2x + 3) > 7) = {round(np.mean(prob), 3)}')
     P((x^2 + 1)/(2x + 3) > 7) = 0.493
 
 
-$\normalsize \text{1.4 Given } X \sim N(15, 7) \text{ and } Y \sim \Gamma(3, 10), \text{ find } P(X > Y).$
+$\normalsize \text{1.4 Given } X \sim N(15, 7) \text{ and } Y \sim \Gamma(3, 10), \text{ find P} (X > Y).$
 
 
 ```python
@@ -89,40 +89,25 @@ print(f'P(X>Y) = {round(np.mean(prob),3)}')
 
 We can estimate the probability from a probability density function (PDF) by using the inverse transform sampling method. First, we generate $n$ random samples from a uniform distribution $U(0,1)$. Then, we apply the inverse cumulative density function $G(x)$ of the given PDF to these samples. The transformed values are drawn from the desired distribution. Next, we apply a specific condition to these transformed samples and calculate the proportion that satisfies the condition. This gives an estimate of the desired probability.
 
-$
-\text{E.g., To simulate Pr} (X< N): \\
-\bullet \ \text{ Generate }w_1,...,w_n\sim U(0,1) \\
-\bullet \text{ Obtain }x_i=G(w_i) \text{ for } i=1,...,n \\
-\bullet \text{ Count }x_i< N, \text{count}=r \\
-\bullet \text{ The estimate Pr}(X< N) = \frac{r}{n}
-$
+$\text{E.g, To simulate Pr} (X < N)$:
+- $\text{Generate }w_1,...,w_n\sim U(0,1)$
+- $\text{Obtain }x_i=G(w_i) \text{ for } i=1,...,n$
+- $\text{Count }x_i< N, \text{count}=r$
+- $\text{The estimate Pr} (X < N) = \frac{r}{n}$
 
-$
-\large \text{2.1 Find P} (X\le1)\text{, given that the PDF is }\\
-$
-$$
-\large f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2 \\
-$$
+$\large \text{2.1 Find P} (X\le1)\text{, given that the PDF is }f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2$
 
-$
-\normalsize \text{The PDF of } x \text{ is given by} \\
-$
-$$
-\normalsize f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2 \\
-$$
-$
-\normalsize \text{Then, the CDF is} \\
-$
-$$
-\normalsize F(x) = \int_{0}^{x}f(t) \ dt=\frac{1}{8}x^3 \\
-$$
-$
-\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x) \\
-$
-$$
-\normalsize G(x)=2x^{\frac{1}{3}}
-$$
+$\normalsize \text{The PDF of } x \text{ is given by}$  
 
+$$\normalsize f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2$$
+
+$\normalsize \text{Then, the CDF is}$  
+
+$$\normalsize F(x) = \int_{0}^{x}f(t) \ dt=\frac{1}{8}x^3$$
+
+$\normalsize \text{The inverse function of } F(x): \ G(x)=F^{-1}(x)$  
+
+$$\normalsize G(x)=2x^{\frac{1}{3}}$$
 
 ```python
 def G(x):
@@ -144,25 +129,15 @@ print(f'P(X<=1) = {round(np.mean(prob),3)}')
     P(X<=1) = 0.125
 
 
-$
-\large \text{2.2 Find P} (X\ge1)\text{, given that the PDF is }\\
-$
-$$
-\large f(x)=\frac{1}{2}e^x\ , \ \text{ln}2\le x\le \text{ln}4 \\
-$$
+$\large \text{2.2 Find P} (X\ge1)\text{, given that the PDF is } f(x)=\frac{1}{2}e^x\ , \ \text{ln}2\le x\le \text{ln}4$  
 
-$
-\normalsize \text{Given the PDF, the CDF is} \\
-$
-$$
-\normalsize F(x) = \int_{\text{ln}2}^{x}f(t) \ dt=\frac{1}{2}e^x-1 \\
-$$
-$
-\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x) \\
-$
-$$
-\normalsize G(x)=\text{log}\bigl(2(x+1)\bigl)
-$$
+$\normalsize \text{Given the PDF, the CDF is}$  
+
+$$\normalsize F(x) = \int_{\text{ln}2}^{x}f(t) \ dt=\frac{1}{2}e^x-1$$  
+
+$\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x)$  
+
+$$\normalsize G(x)=\text{log}\bigl(2(x+1)\bigl)$$  
 
 
 ```python
@@ -185,25 +160,15 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.641
 
 
-$
-\large \text{2.3 Find P} (X\lt1)\text{, given that the PDF is }\\
-$
-$$
-\large f(x)=\text{sin}(2x) \ ,\ 0\le x\le \frac{\pi}{2} \\
-$$
+$\large \text{2.3 Find P} (X\lt1)\text{, given that the PDF is }f(x)=\text{sin}(2x) \ ,\ 0\le x\le \frac{\pi}{2}$  
 
-$
-\normalsize \text{Given the PDF, the CDF is} \\
-$
-$$
-\normalsize F(x) = \int_{0}^{x}f(t) \ dt= \frac{1}{2}-\frac{\text{cos}(2x)}{2} \\
-$$
-$
-\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x) \\
-$
-$$
-\normalsize G(x)=\frac{1}{2}\text{cos}^{-1}(-2x+1)
-$$
+$\normalsize \text{Given the PDF, the CDF is}$  
+
+$$\normalsize F(x) = \int_{0}^{x}f(t) \ dt= \frac{1}{2}-\frac{\text{cos}(2x)}{2}$$  
+
+$\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x)$  
+
+$$\normalsize G(x)=\frac{1}{2}\text{cos}^{-1}(-2x+1)$$  
 
 
 ```python
@@ -226,25 +191,15 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.708
 
 
-$
-\large \text{2.4 Find P} (X\gt2)\text{, given that the PDF is }\\
-$
-$$
-\large f(x)=\frac{1}{2}e^{-\frac{1}{2}x} \ ,\ 0\le x\lt \infty  \\
-$$
+$\large \text{2.4 Find P} (X\gt2)\text{, given that the PDF is } f(x)=\frac{1}{2}e^{-\frac{1}{2}x} \ ,\ 0\le x\lt \infty$
 
-$
-\normalsize \text{Given the PDF, the CDF is} \\
-$
-$$
-\normalsize F(x) = \int_{0}^{x}f(t) \ dt= -e^{-\frac{x}{2}}+1 \\
-$$
-$
-\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x) \\
-$
-$$
-\normalsize G(x)=-2\text{ln}(1-x)
-$$
+$\normalsize \text{Given the PDF, the CDF is}$  
+
+$$\normalsize F(x) = \int_{0}^{x}f(t) \ dt= -e^{-\frac{x}{2}}+1$$  
+
+$\normalsize \text{The inverse function of } F(x): G(x)=F^{-1}(x)$  
+
+$$\normalsize G(x)=-2\text{ln}(1-x)$$
 
 
 ```python
@@ -267,35 +222,25 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.368
 
 
-$
-\large \text{2.4 Find P} (X\gt Y)\text{, given that the PDF is }\\
-$
-$$
-\large X\sim f_{1}(x)=3x^2 \ ,\ 0\le x\le 1 \\
-\large Y\sim f_{2}(y)=2y \ ,\ 0\le y\le 1 \\
-$$
+$\large \text{2.4 Find P} (X\gt Y)\text{, given that the PDF is }$  
 
-$
-\normalsize \text{Given the PDFs, the CDFs are} \\
-$
-$$
-\normalsize F_{1}(x) = \int_{0}^{x}f_{1}(t) \ dt= x^3\\
-$$
-$$
-\normalsize F_{2}(y) = \int_{0}^{y}f_{2}(t) \ dt= y^2\\
-$$
-$
-\normalsize \text{The inverse function of } F_{1}(x): G_{1}(x)=F_{1}^{-1}(x) \\
-$
-$$
-\normalsize G_{1}(x)=x^{\frac{1}{3}}
-$$
-$
-\normalsize \text{ and }F_{2}(x): G_{2}(y)=F_{2}^{-1}(y)\\
-$
-$$
-\normalsize G_{2}(y)=\sqrt{y}
-$$
+$$\large X\sim f_{1}(x)=3x^2 \ ,\ 0\le x\le 1 $$  
+
+$$\large Y\sim f_{2}(y)=2y \ ,\ 0\le y\le 1 $$  
+
+$\normalsize \text{Given the PDFs, the CDFs are}$  
+
+$$\normalsize F_{1}(x) = \int_{0}^{x}f_{1}(t) \ dt= x^3$$  
+
+$$\normalsize F_{2}(y) = \int_{0}^{y}f_{2}(t) \ dt= y^2$$  
+
+$\normalsize \text{The inverse function of } F_{1}(x): G_{1}(x)=F_{1}^{-1}(x)$  
+
+$$\normalsize G_{1}(x)=x^{\frac{1}{3}}$$  
+
+$\normalsize \text{ and }F_{2}(x): G_{2}(y)=F_{2}^{-1}(y)$  
+
+$$\normalsize G_{2}(y)=\sqrt{y}$$  
 
 
 ```python
@@ -325,36 +270,25 @@ print(f'P(X>Y) = {round(np.mean(prob),3)}')
 
 ## 3. Monte-Carlo Integration 
 
-Monte Carlo integration estimates an integral by averaging the function values at $n$ random points uniformly sampled from $[a, b]$, then scaling by $(b-a)$. Repeating this $ M $ times and averaging the results improves accuracy, making it useful for complex or high-dimensional integrals.
+Monte Carlo integration estimates an integral by averaging the function values at $n$ random points uniformly sampled from $[a, b]$, then scaling by $(b-a)$. Repeating this $M$ times and averaging the results improves accuracy, making it useful for complex or high-dimensional integrals.
 
-$
-\text{Goal: Evaluate the Integral using random sampling}\\
-$
-$$
-I = \int_{a}^{b}f(x)\ dx \\
-$$
-$
-\text{Suppose we have random samples }X_1, ...,X_n \text{from a uniform distribution} \\
-$
-$$
-X_1, ...,X_n \sim U(a,b) \\
-$$
-$
-\text{Then, }I \text{ can be estimated by Monte-Carlo estimator }M_n \text{, which is defined by} \\
-$
-$$
-M_n = \frac{(b-a)}{n}\sum_{i=1}^{n}f(X_i) \\
-$$
-$
-\text{as the integral }I \text{ can be expressed in terms of the expected value}\\
-$
-$$
-I = \int_{a}^{b}f(x) \ dx = (b-a)\cdot E[f(x)] \ \text{  where  } \ E[f(x)]\approx \frac{1}{n}\sum_{i=1}^{n}f(x_i) 
-$$
+$\text{Goal: Evaluate the Integral using random sampling}$  
 
-$
-\large \text{3.1 Estimate the function } f(x)=x^2\text{ for the interval } 1\le x\le 3.\\
-$
+$$I = \int_{a}^{b}f(x)\ dx$$  
+
+$\text{Suppose we have random samples }X_1, ...,X_n \text{from a uniform distribution}$  
+
+$$X_1, ...,X_n \sim U(a,b)$$  
+
+$\text{Then, }I \text{ can be estimated by Monte-Carlo estimator }M_n \text{, which is defined by}$  
+
+$$M_n = \frac{(b-a)}{n}\sum_{i=1}^{n}f(X_i)$$  
+
+$\text{as the integral }I \text{ can be expressed in terms of the expected value}$
+
+$$I = \int_{a}^{b}f(x) \ dx = (b-a)\cdot E[f(x)] \ \text{  where  } \ E[f(x)]\approx \frac{1}{n} \ \sum_{i=1}^{n}f(x_i)$$  
+
+$\large \text{3.1 Estimate the function } f(x)=x^2\text{ for the interval } 1\le x\le 3$
 
 
 ```python
@@ -380,14 +314,11 @@ print(f'Estimate of integral = {round(np.mean(MCI),3)}')
     Estimate of integral = 8.665
 
 
-$
-\large \text{3.2 Given }X\sim N(10,3^2)\text{, Find Pr}(X>14) \\
-$
+$\large \text{3.2 Given }X\sim N(10,3^2)\text{, Find Pr}(X>14)$
 
-$$
-\normalsize \text{Let }f(x)= \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}\\
-\normalsize \text{Then, }{Pr}(X>14)=\int_{14}^{\infty } f(x)dx\approx \int_{14}^{20} f(x)dx
-$$
+$$\normalsize \text{Let }f(x)= \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$  
+
+$$\normalsize \text{Then, }{Pr}(X>14)=\int_{14}^{\infty } f(x)dx\approx \int_{14}^{20} f(x)dx$$
 
 
 ```python
