@@ -12,7 +12,7 @@ import random
 
 We can estimate the probability of a distribution by randomly generating $n$ samples from a given distribution (e.g., normal or gamma). We then apply a specific condition to each sample and count how many satisfy it. The probability is estimated by dividing the count of satisfying samples by $n$. This process is repeated $M$ times to improve accuracy, and the final probability is the average of the results from all iterations. This approach allows us to estimate probabilities through simulation.
 
-$\normalsize \text{1.1 Given } X \sim N(650, 50^2), \text{ find P} (X<650).$
+### $\normalsize \text{1.1 Given } X \sim N(650, 50^2), \text{ find P} (X<650).$
 
 
 ```python
@@ -30,7 +30,7 @@ print(f'P(X<650) = {round(np.mean(prob),3)}')
     P(X<650) = 0.841
 
 
-$\normalsize \text{1.2 Given } X \sim \Gamma(2, 9), \text{ find P} (X>22).$
+### $\normalsize \text{1.2 Given } X \sim \Gamma(2, 9), \text{ find P} (X>22).$
 
 
 ```python
@@ -48,7 +48,7 @@ print(f'P(X>22) = {round(np.mean(prob),3)}')
     P(X>22) = 0.299
 
 
-$\normalsize \text{1.3 Given } X \sim \Gamma(2, 9), \text{ find P} (\frac{x^2 + 1}{2x + 3}>7).$
+### $\normalsize \text{1.3 Given } X \sim \Gamma(2, 9), \text{ find P} (\frac{x^2 + 1}{2x + 3}>7).$
 
 
 ```python
@@ -66,7 +66,7 @@ print(f'P((x^2 + 1)/(2x + 3) > 7) = {round(np.mean(prob), 3)}')
     P((x^2 + 1)/(2x + 3) > 7) = 0.493
 
 
-$\normalsize \text{1.4 Given } X \sim N(15, 7) \text{ and } Y \sim \Gamma(3, 10), \text{ find P} (X > Y).$
+### $\normalsize \text{1.4 Given } X \sim N(15, 7) \text{ and } Y \sim \Gamma(3, 10), \text{ find P} (X > Y).$
 
 
 ```python
@@ -95,7 +95,7 @@ $\text{E.g, To simulate Pr} (X < N)$:
 - $\text{Count }x_i< N, \text{count}=r$
 - $\text{The estimate Pr} (X < N) = \frac{r}{n}$
 
-$\large \text{2.1 Find P} (X\le1)\text{, given that the PDF is }f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2$
+### $\large \text{2.1 Find P} (X\le1)\text{, given that the PDF is }f(x)=\frac{3}{8}x^2\ , \ 0\le x\le 2$
 
 $\normalsize \text{The PDF of } x \text{ is given by}$  
 
@@ -129,7 +129,7 @@ print(f'P(X<=1) = {round(np.mean(prob),3)}')
     P(X<=1) = 0.125
 
 
-$\large \text{2.2 Find P} (X\ge1)\text{, given that the PDF is } f(x)=\frac{1}{2}e^x\ , \ \text{ln}2\le x\le \text{ln}4$  
+### $\large \text{2.2 Find P} (X\ge1)\text{, given that the PDF is } f(x)=\frac{1}{2}e^x\ , \ \text{ln}2\le x\le \text{ln}4$  
 
 $\normalsize \text{Given the PDF, the CDF is}$  
 
@@ -160,7 +160,7 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.641
 
 
-$\large \text{2.3 Find P} (X\lt1)\text{, given that the PDF is }f(x)=\text{sin}(2x) \ ,\ 0\le x\le \frac{\pi}{2}$  
+### $\large \text{2.3 Find P} (X\lt1)\text{, given that the PDF is }f(x)=\text{sin}(2x) \ ,\ 0\le x\le \frac{\pi}{2}$  
 
 $\normalsize \text{Given the PDF, the CDF is}$  
 
@@ -191,7 +191,7 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.708
 
 
-$\large \text{2.4 Find P} (X\gt2)\text{, given that the PDF is } f(x)=\frac{1}{2}e^{-\frac{1}{2}x} \ ,\ 0\le x\lt \infty$
+### $\large \text{2.4 Find P} (X\gt2)\text{, given that the PDF is } f(x)=\frac{1}{2}e^{-\frac{1}{2}x} \ ,\ 0\le x\lt \infty$
 
 $\normalsize \text{Given the PDF, the CDF is}$  
 
@@ -222,7 +222,7 @@ print(f'P(X>=1) = {round(np.mean(prob),3)}')
     P(X>=1) = 0.368
 
 
-$\large \text{2.4 Find P} (X\gt Y)\text{, given that the PDF is }$  
+### $\large \text{2.5 Find P} (X\gt Y)\text{, given that the PDF is }$  
 
 $$\large X\sim f_{1}(x)=3x^2 \ ,\ 0\le x\le 1 $$  
 
@@ -288,7 +288,7 @@ $\text{as the integral }I \text{ can be expressed in terms of the expected value
 
 $$I = \int_{a}^{b}f(x) \ dx = (b-a)\cdot E[f(x)] \ \text{  where  } \ E[f(x)]\approx \frac{1}{n} \ \sum_{i=1}^{n}f(x_i)$$  
 
-$\large \text{3.1 Estimate the function } f(x)=x^2\text{ for the interval } 1\le x\le 3$
+### $\large \text{3.1 Estimate the function } f(x)=x^2\text{ for the interval } 1\le x\le 3$
 
 
 ```python
@@ -314,7 +314,7 @@ print(f'Estimate of integral = {round(np.mean(MCI),3)}')
     Estimate of integral = 8.665
 
 
-$\large \text{3.2 Given }X\sim N(10,3^2)\text{, Find Pr}(X>14)$
+### $\large \text{3.2 Given }X\sim N(10,3^2)\text{, Find Pr}(X>14)$
 
 $$\normalsize \text{Let }f(x)= \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$  
 
